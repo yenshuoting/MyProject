@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+		"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+		"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+
+	<package name="default" extends="struts-default">
+        <!--member權限-->
+        <!--會員登入-->
+		<action name="login" class="controller.LoginAction" method="execute">
+			<result name="loginok" type="redirect">/loginok.jsp</result>
+			<result name="addmember" type="redirect">/loginerror.jsp</result>
+		</action>
+		
+		<!--會員註冊-->
+		<action name="checkUser" class="controller.CheckUserAction" method="execute">
+			<result name="userduplicate" type="redirect">/userduplicate.jsp</result>
+			<result name="addmemberok" type="redirect">/addmemberok.jsp</result>
+		</action>
+		
+		<!--購物訂單~1-->
+		<action name="confirm" class="controller.Confirm" method="execute">
+			<result name="confirm" type="redirect">confirm.jsp</result>
+		</action>
+		
+		<!--購物訂單~2-->
+		<action name="add" class="controller.AddPorderAction" method="execute">
+			<result name="finish" type="redirect">finish.jsp</result>
+		</action>
+		
+		<!--訂單查詢-->
+		<action name="findporder" class="controller.FindPorderAction" method="execute">
+			<result name="success" type="redirect">findporderresult.jsp</result>
+			<result name="error" type="redirect">findporderresulterror.jsp</result>
+		</action>
+		
+		<!--訂單刪除-->
+		<action name="deleteporder" class="controller.DeletePorderAction" method="execute">
+			<result name="ok" type="redirect">deleteporderok.jsp</result>
+			<result name="error" type="redirect">deletepordererror.jsp</result>
+		</action>
+		
+		<!--訂單修改~1-->
+		<action name="porderupdate" class="controller.UpdateConfirm" method="execute">
+			<result name="updateconfirm" type="redirect">updateconfirm.jsp</result>
+			<result name="error" type="redirect">updateconfirmerror.jsp</result>
+		</action>
+		
+		<!--訂單修改~1-->
+		<action name="update" class="controller.UpdatePorderAction" method="execute">
+			<result name="finish" type="redirect">finish.jsp</result>
+		</action>
+		
+		<!--會員資料更新-->
+		<action name="updateuser" class="controller.UpdateUserAction" method="execute">
+			<result name="ok" type="redirect">/memberupdateok.jsp</result>		
+		</action>
+		
+		
+	</package>
+</struts>
